@@ -9,6 +9,48 @@
 :root {
   --dark-color: #000;
 }
+@import url('https://googleapis.com');
+
+.contenedor-titulo {
+  position: fixed; /* Se queda arriba aunque haya scroll */
+  top: 50px;       /* Distancia desde el borde superior */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 999;    /* Esto asegura que esté por ENCIMA de cualquier capa de flores */
+  pointer-events: none; /* Para que no interfiera si haces clic en las flores */
+}
+
+.texto-bonito {
+  font-family: 'Dancing Script', cursive; /* Una letra cursiva muy fina y bonita */
+  font-size: 5rem;
+  color: #ffeb3b; /* Amarillo brillante */
+  text-shadow: 0 0 15px rgba(255, 235, 59, 0.9), 3px 3px 5px rgba(0,0,0,0.5);
+  margin: 0;
+  animation: brillar 3s ease-in-out infinite alternate;
+}
+
+/* Animación de brillo suave */
+@keyframes brillar {
+  from {
+    text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b;
+    transform: scale(1);
+  }
+  to {
+    text-shadow: 0 0 20px #ffeb3b, 0 0 30px #fff700;
+    transform: scale(1.05);
+  }
+}
+
+/* Ajuste para que en celulares no se vea gigante */
+@media screen and (max-width: 600px) {
+  .texto-bonito {
+    font-size: 2.8rem;
+  }
+  .contenedor-titulo {
+    top: 30px;
+  }
+}
 
 body {
   display: flex;
